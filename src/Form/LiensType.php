@@ -12,12 +12,11 @@ class LiensType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('url')
             ->add('titre')
             ->add('description')
-            ->add('createdAt')
-            ->add('modifiedAt')
-            ->add('url')
-        ;
+            ->add('createdAt');
+            // ->add('modifiedAt');
     }
 
     public function configureOptions(OptionsResolver $resolver): void
