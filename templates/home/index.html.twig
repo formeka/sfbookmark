@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="liens">
+{% for lien in liens %}
+    <article>
+    <h4>{{ lien.titre }}</h4>
+    <p>{{ lien.resume }}</p>
+    <p><a href="{{ lien.url }}">Lien</a></p>
+    <p>{{ lien.createdAt|date('d/m/Y à H:m:s') }}</p>
+    </article>
+{% endfor %}
+</section>
+{% endblock %}
