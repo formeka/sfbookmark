@@ -29,6 +29,11 @@ class Liens
     #[ORM\Column(length: 255)]
     private ?string $url = null;
 
+    public function __construct()
+    {
+        $this->createdAt = new \Datetime();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

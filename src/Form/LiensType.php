@@ -15,8 +15,8 @@ class LiensType extends AbstractType
             ->add('url')
             ->add('titre')
             ->add('description')
-            ->add('createdAt');
-            // ->add('modifiedAt');
+            ->add('createdAt')
+            ->add('modifiedAt');
     }
 
     public function configureOptions(OptionsResolver $resolver): void
