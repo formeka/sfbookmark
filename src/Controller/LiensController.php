@@ -27,7 +27,6 @@ class LiensController extends AbstractController
     {
         $lien = new Liens();
         $form = $this->createForm(LiensType::class, $lien);
-        $form->remove('modifiedAt');
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

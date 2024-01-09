@@ -18,13 +18,13 @@ class Liens
     private ?string $titre = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    private ?string $resume = null;
+
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $createdAt = null;
-
-    #[ORM\Column(type: Types::DATETIME_MUTABLE,nullable:true)]
-    private ?\DateTimeInterface $modifiedAt = null;
 
     #[ORM\Column(length: 255)]
     private ?string $url = null;
@@ -63,6 +63,18 @@ class Liens
         return $this;
     }
 
+    public function getResume(): ?string
+    {
+        return $this->resume;
+    }
+
+    public function setResume(string $resume): static
+    {
+        $this->resume = $resume;
+
+        return $this;
+    }
+
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
@@ -71,18 +83,6 @@ class Liens
     public function setCreatedAt(\DateTimeInterface $createdAt): static
     {
         $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getModifiedAt(): ?\DateTimeInterface
-    {
-        return $this->modifiedAt;
-    }
-
-    public function setModifiedAt(\DateTimeInterface $modifiedAt): static
-    {
-        $this->modifiedAt = $modifiedAt;
 
         return $this;
     }
