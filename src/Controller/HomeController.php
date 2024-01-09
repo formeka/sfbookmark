@@ -13,7 +13,8 @@ class HomeController extends AbstractController
     public function index(LiensRepository $liensRepository): Response
     {
         // $liens = $liensRepository->findAll();
-        $liens = $liensRepository->findBy([],['id' => 'DESC']);
+        // $liens = $liensRepository->findBy([],['id' => 'DESC']);
+        $liens = $liensRepository->findLastByDate();
         return $this->render('home/index.html.twig', [
             'liens' => $liens,
         ]);

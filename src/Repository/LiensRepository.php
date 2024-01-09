@@ -21,6 +21,22 @@ class LiensRepository extends ServiceEntityRepository
         parent::__construct($registry, Liens::class);
     }
 
+       /**
+    * @return Liens[] Returns an array of Liens objects
+    */
+   public function findLastByDate(): array
+   {
+       return $this->createQueryBuilder('l')
+           ->andWhere('l.createdAt <= :now')
+           ->setParameter('now', new \DateTime())
+           ->orderBy('l.id', 'DESC')
+           ->setMaxResults(10)
+           ->getQuery()
+           ->getResult()
+       ;
+   }
+
+
 //    /**
 //     * @return Liens[] Returns an array of Liens objects
 //     */
